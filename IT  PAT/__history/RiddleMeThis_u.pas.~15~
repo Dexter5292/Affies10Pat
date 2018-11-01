@@ -1,0 +1,189 @@
+unit RiddleMeThis_u;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ComCtrls, Vcl.Menus,
+  Vcl.StdActns, System.Actions, Vcl.ActnList, Vcl.Imaging.pngimage, Vcl.ExtCtrls, math;
+
+type
+  TForm1 = class(TForm)
+    tpage: TPageControl;
+    MainMenu: TTabSheet;
+    BtnInstructions: TButton;
+    MainMenu1: TMainMenu;
+    ActionList1: TActionList;
+    Action1: TAction;
+    FileExit1: TFileExit;
+    Label1: TLabel;
+    Instructions: TTabSheet;
+    BtnStart: TButton;
+    Label2: TLabel;
+    Start: TTabSheet;
+    Redinstructions: TRichEdit;
+    Button1: TButton;
+    DialogColorSelect1: TColorSelect;
+    Exit1: TMenuItem;
+    btnObjective: TButton;
+    Label3: TLabel;
+    Objectives: TTabSheet;
+    redobjective: TRichEdit;
+    btninstructions2: TButton;
+    Label4: TLabel;
+    btnPlayer1: TButton;
+    btnPlayer2: TButton;
+    btnPlayer3: TButton;
+    btnPlayer4: TButton;
+    Singleplayer: TTabSheet;
+    edtName: TEdit;
+    Label5: TLabel;
+    btnDone: TButton;
+    Singleboard: TTabSheet;
+    pnlStart: TPanel;
+    pnlBlock1: TPanel;
+    pnlBlock2: TPanel;
+    pnlblock3: TPanel;
+    pnlBlock4: TPanel;
+    pnlBlock5: TPanel;
+    pnlBlock6: TPanel;
+    pnlBlock7: TPanel;
+    pnlBlock8: TPanel;
+    pnlBlock9: TPanel;
+    pnlBlock10: TPanel;
+    pnlBlock11: TPanel;
+    pnlBlock12: TPanel;
+    pnlBlock13: TPanel;
+    pnlBlock14: TPanel;
+    pnlBlock15: TPanel;
+    pnlBlock16: TPanel;
+    pnlBlock17: TPanel;
+    pnlBlock18: TPanel;
+    pnlEnd: TPanel;
+    Image1: TImage;
+    btnbegin: TButton;
+    btnroll: TButton;
+    procedure BtnInstructionsClick(Sender: TObject);
+    procedure BtnStartClick(Sender: TObject);
+    procedure btnObjectiveClick(Sender: TObject);
+    procedure btninstructions2Click(Sender: TObject);
+    procedure BtnMultiplayerClick(Sender: TObject);
+    procedure btnSingleplayerClick(Sender: TObject);
+    procedure btnPlayer1Click(Sender: TObject);
+    procedure btnDoneClick(Sender: TObject);
+    procedure Button1Click(Sender: TObject);
+    procedure SingleboardShow(Sender: TObject);
+    procedure btnrollClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  Form1: TForm1;
+  player1, player2, player3, player4 : string;
+
+implementation
+
+{$R *.dfm}
+
+procedure TForm1.btnDoneClick(Sender: TObject);
+begin
+  player1 := edtName.text;
+  tpage.ActivePage := singleboard;
+end;
+
+procedure TForm1.btninstructions2Click(Sender: TObject);
+var
+  vline : string;
+  vfile : textfile;
+begin
+  tpage.ActivePage := Instructions;
+  assignfile(vfile,'instructions.txt');
+  reset(vfile);
+  redinstructions.Lines.Clear;
+  while not EOF(vfile) do
+    begin
+      readln(vfile,vline);
+      redinstructions.Lines.Add(vline);
+    end
+end;
+
+procedure TForm1.BtnInstructionsClick(Sender: TObject);
+var
+  vline : string;
+  vfile : textfile;
+begin
+  tpage.ActivePage := Instructions;
+  assignfile(vfile,'instructions.txt');
+  reset(vfile);
+  redinstructions.Lines.Clear;
+  while not EOF(vfile) do
+    begin
+      readln(vfile,vline);
+      redinstructions.Lines.Add(vline);
+    end;
+
+
+
+
+
+
+end;
+
+procedure TForm1.BtnMultiplayerClick(Sender: TObject);
+begin
+ // tpage.ActivePage := ;
+end;
+
+procedure TForm1.btnObjectiveClick(Sender: TObject);
+var
+  vfile : textfile;
+  vline : string;
+begin
+  tpage.ActivePage := objectives;
+  assignfile(vfile,'objective.txt');
+  reset(vfile);
+  redobjective.Lines.clear;
+  while not EOF(vfile) do
+    begin
+      readln(vfile,vline);
+      redobjective.Lines.Add(vline);
+    end;
+end;
+
+procedure TForm1.btnSingleplayerClick(Sender: TObject);
+begin
+  tpage.ActivePage := singleplayer;
+end;
+
+procedure TForm1.BtnStartClick(Sender: TObject);
+begin
+  tpage.ActivePage := start;
+end;
+
+procedure TForm1.Button1Click(Sender: TObject);
+begin
+  tpage.ActivePage := start;
+end;
+
+procedure TForm1.SingleboardShow(Sender: TObject);
+begin
+  showmessage('press the roll button to see who goes first');
+end;
+
+procedure TForm1.btnPlayer1Click(Sender: TObject);
+begin
+  tpage.ActivePage := singleplayer;
+end;
+
+procedure TForm1.btnrollClick(Sender: TObject);
+var
+  vdice : string;
+begin
+  vdice := '123456';
+  showmessage(RandomRange(vdice));
+end;
+
+end.

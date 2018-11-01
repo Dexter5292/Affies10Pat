@@ -1,0 +1,13 @@
+Instructions 
+
+1. Enter your name in the Name box.
+ 
+2. Press the Roll button to get a number and the next person presses it to see who goes first.
+
+3. When you know who goes first then that person presses the roll button and a question will popup.
+
+4. If you answer incorrect you will not move.
+   
+5. You will then keep going around the board and you will win if you reach the end first. 
+
+ 

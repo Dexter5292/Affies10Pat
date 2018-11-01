@@ -1,0 +1,5 @@
+Objective
+
+The objective of the game is to answer a many answers as you can in the
+given time and the first person to reach the end of the board wins.
+ 
